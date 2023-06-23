@@ -25,7 +25,7 @@ dd if=chr.img bs=1024 of="$DISK"
 echo "sync disk"
 echo s > /proc/sysrq-trigger
 echo "Installing..."
-sleep 3
+sleep 1
 echo " Telegram :---> https://t.me/P_tech2024"
 echo " Installed, rebooting, please wait..."
 echo b > /proc/sysrq-trigger
