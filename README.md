@@ -28,24 +28,24 @@ sudo wget https://download.mikrotik.com/routeros/7.10/chr-7.10.img.zip -O chr.im
 
 #2
 
-``
- gunzip -c chr.img.zip > chr.img
-``
+```
+sudo gunzip -c chr.img.zip > chr.img
+```
 
 #3
 
-``
-dd if=chr.img bs=1024 of=/dev/vda
-``
+```
+sudo dd if=chr.img bs=1024 of=/dev/vda
+```
 
 #4
 
-``
-echo s > /proc/sysrq-trigger
-``
+```
+sudo echo s > /proc/sysrq-trigger
+```
 
 #5
 
-``
-echo b > /proc/sysrq-trigger
-``
+```
+sudo echo b > /proc/sysrq-trigger
+```
