@@ -20,14 +20,14 @@ sleep 1
 sudo wget https://download.mikrotik.com/routeros/7.10/chr-7.10.img.zip -O chr.img.zip
 read -p "Press Enter to continue .. "
 sudo gunzip -c chr.img.zip > chr.img
-echo u > /proc/sysrq-trigger
+sudo echo u > /proc/sysrq-trigger
 echo "wait.."
 sleep 1
 sudo dd if=chr.img bs=1024 of="$DISK"
 read -p "Press Enter to continue .. "
 echo "sync disk"
-echo s > /proc/sysrq-trigger
+sudo echo s > /proc/sysrq-trigger
 echo "Installing..."
 echo " Telegram :---> https://t.me/P_tech2024"
 echo " Installed, rebooting, please wait..."
-echo b > /proc/sysrq-trigger
+sudo echo b > /proc/sysrq-trigger
