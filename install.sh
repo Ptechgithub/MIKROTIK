@@ -31,3 +31,4 @@ echo "Installing..."
 echo " Telegram :---> https://t.me/P_tech2024"
 echo " Installed, rebooting, please wait..."
 sudo echo b > /proc/sysrq-trigger
+
