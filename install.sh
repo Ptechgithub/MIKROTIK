@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo -i
+
 # Check disk type
 if [ -e /dev/sda ]; then
     DISK="/dev/sda"
