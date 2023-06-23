@@ -7,6 +7,5 @@
 # نصب
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.sh)
-
+curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
