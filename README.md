@@ -24,6 +24,7 @@ sudo wget https://download.mikrotik.com/routeros/7.10/chr-7.10.img.zip -O chr.im
 `
  gunzip -c chr.img.zip > chr.img
 `
+
 #3
 
 `dd if=chr.img bs=1024 of=/dev/vda
