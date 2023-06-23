@@ -57,3 +57,6 @@ echo s > /proc/sysrq-trigger
 ```
 echo b > /proc/sysrq-trigger
 ```
+
+
+- برای تشخیص نوع disc در لاین #3 میتوانید از دستور  df -h استفاده کنید. خردجی به شکل /dev/vda میباشد.
