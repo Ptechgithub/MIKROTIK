@@ -23,7 +23,7 @@ curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.s
 
 ## قبل از نصب ابتدا دستور sudo -i را وارد کنید 
 
-#0
+-
 ``
 sudo -i
 ``
