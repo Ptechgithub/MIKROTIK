@@ -23,7 +23,7 @@ gunzip -c chr.img.zip > chr.img
 echo u > /proc/sysrq-trigger
 echo "wait.."
 sleep 1
-dd if=chr.img bs=1024 of="$DISK"
+sudo dd if=chr.img bs=1024 of="$DISK"
 read -p "Press Enter to continue .. "
 echo "sync disk"
 echo s > /proc/sysrq-trigger
