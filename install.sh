@@ -28,7 +28,6 @@ read -p "Press Enter to continue .. "
 echo "sync disk"
 echo s > /proc/sysrq-trigger
 echo "Installing..."
-sleep 5
 echo " Telegram :---> https://t.me/P_tech2024"
 echo " Installed, rebooting, please wait..."
 echo b > /proc/sysrq-trigger
