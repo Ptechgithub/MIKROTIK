@@ -4,7 +4,7 @@
 # install mikrotik on vps
 # نصب میکروتیک روی سرور مجازی
 
-# نصب
+# نصب خودکار
 
 ```
 curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
@@ -17,7 +17,7 @@ curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.s
 .
 
 .
-
+### نصب روی آروان و دیگر ارائه دهنده ها حتی hetzner
 #install on Arvancloud 
 ## برای نصب روی سرورهای آروان از دستورات زیر استفاده کنید . دستورات را به ترتیب وارد کنید👇
 
