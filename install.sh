@@ -29,6 +29,6 @@ echo "sync disk"
 sudo echo s > /proc/sysrq-trigger
 echo "Installing..."
 echo " Telegram :---> https://t.me/P_tech2024"
-echo " Installed, rebooting, please wait..."
+read -p "Installed , Press Enter to reboot .. "
 sudo echo b > /proc/sysrq-trigger
 
