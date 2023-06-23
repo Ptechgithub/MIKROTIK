@@ -12,7 +12,7 @@ curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.s
 
 
 #install on Arvancloud 
-برایرنصب روی سرورهای آروان دستورات را به ترتیب وارد کنید
+# برای نصب روی سرورهای آروان از دستورات زیر استفاده کنید . دستورات را به ترتیب وارد کنید👇
 ``
 sudo wget https://download.mikrotik.com/routeros/7.10/chr-7.10.img.zip -O chr.img.zip
 ``
