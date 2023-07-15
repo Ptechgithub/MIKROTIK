@@ -24,7 +24,7 @@ else
 fi
 
 # Download and install CHR image on disk
-sudo wget https://download.mikrotik.com/routeros/7.10/chr-7.10.img.zip -O chr.img.zip
+sudo wget https://download.mikrotik.com/routeros/7.10.2/chr-7.10.2.img.zip -O chr.img.zip
 gunzip -c chr.img.zip > chr.img
 read -p "Press Enter to continue..."
 echo u > /proc/sysrq-trigger
