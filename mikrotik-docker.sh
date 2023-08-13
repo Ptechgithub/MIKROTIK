@@ -4,8 +4,11 @@ sudo apt-get update;
 rm -r /etc/resolv.conf
 echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
+echo ""
+echo ""
 echo "https://www.youtube.com/@IR_TECH"
 echo "PLEASE WAIT INSTALLING DOCKER...."                                                                                                                         
+echo ""
 echo ""
 
 apt install curl -y
