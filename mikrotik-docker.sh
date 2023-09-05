@@ -65,11 +65,11 @@ install_mikrotik() {
             done
 
             # Run the MikroTik container with all the port mappings
-            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 22:22 -p 8291:8291 -p 80:80 $port_mappings -ti livekadeh_com_mikrotik7_7
+            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 8291:8291 -p 80:80 $port_mappings -ti livekadeh_com_mikrotik7_7
             docker attach livekadeh_com_mikrotik7_7
         else
             # If the user does not want to add additional ports, use the original docker run command
-            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 22:22 -p 8291:8291 -p 80:80 -ti livekadeh_com_mikrotik7_7
+            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 8291:8291 -p 80:80 -ti livekadeh_com_mikrotik7_7
             docker attach livekadeh_com_mikrotik7_7
         fi
     fi
@@ -84,7 +84,7 @@ uninstall_mikrotik() {
         fi
         docker rm livekadeh_com_mikrotik7_7
         docker rmi livekadeh_com_mikrotik7_7
-        rm mikrotik7.7_docker_livekadeh.com
+        rm Docker-image-Mikrotik-7.7-L6.7z
         echo "MikroTik has been uninstalled."
     else
         echo "MikroTik is not installed."
