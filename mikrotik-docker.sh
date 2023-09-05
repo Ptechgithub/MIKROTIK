@@ -65,11 +65,11 @@ install_mikrotik() {
             done
 
             # Run the MikroTik container with all the port mappings
-            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 8291:8291 -p 80:80 $port_mappings -ti livekadeh_com_mikrotik7_7
+            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 22:22 -p 8291:8291 -p 80:80 $port_mappings -ti livekadeh_com_mikrotik7_7
             docker attach livekadeh_com_mikrotik7_7
         else
             # If the user does not want to add additional ports, use the original docker run command
-            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 8291:8291 -p 80:80 -ti livekadeh_com_mikrotik7_7
+            docker run --cap-add=NET_ADMIN --device=/dev/net/tun -d --name livekadeh_com_mikrotik7_7 -p 22:22 -p 8291:8291 -p 80:80 -ti livekadeh_com_mikrotik7_7
             docker attach livekadeh_com_mikrotik7_7
         fi
     fi
