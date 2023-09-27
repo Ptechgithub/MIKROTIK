@@ -40,7 +40,7 @@ install_mikrotik() {
 
         # Check if the Docker image file exists, and if not, download it
         if [ ! -f "Docker-image-Mikrotik-7.7-L6.7z" ]; then
-            wget https://mirdehghan.ir/dl/Docker-image-Mikrotik-7.7-L6.7z
+            wget https://github.com/Ptechgithub/MIKROTIK/releases/download/L6/Docker-image-Mikrotik-7.7-L6.7z
         fi
 
         # Ask the user if they want to add additional ports
