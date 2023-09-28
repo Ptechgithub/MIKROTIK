@@ -173,7 +173,7 @@ case $choice in
         install_chr_image
         ;;
     2)
-        ininstall_mikrotik
+        install_mikrotik
         ;;
     3)
         uninstall_mikrotik
