@@ -37,6 +37,7 @@ check_dependencies() {
 # install chr_image
 install_chr_image() {
     check_dependencies
+    
     ROOT_PARTITION=$(sudo mount | grep 'on / type' | awk '{ print $1 }' | sed 's/[0-9]*$//')
     # Download and install CHR image on disk
     sudo wget https://download.mikrotik.com/routeros/7.11.2/chr-7.11.2.img.zip -O chr.img.zip
