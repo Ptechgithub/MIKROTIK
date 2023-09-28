@@ -28,6 +28,7 @@ check_dependencies() {
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
             echo "${dep} is not installed. Installing..."
+            sudo "$PM" update -y
             sudo "${PM}" install "${dep}" -y
         fi
     done
@@ -63,7 +64,6 @@ is_mikrotik_installed() {
 # install MikroTik
 install_mikrotik_docker() {
     check_dependencies
-    sudo "$PM" update -y
 
     # Check if the Docker image file exists, and if not, download it
     if [ ! -f "Docker-image-Mikrotik-7.7-L6.7z" ]; then
