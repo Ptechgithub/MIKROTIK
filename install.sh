@@ -151,10 +151,10 @@ menu() {
     echo ""
     echo "-------MikroTik Installer-------"
     echo "Select an option:"
-    echo "1) Install MikroTik_CHR"
+    echo "1) Install MikroTik CHR"
     echo "------------------------------------------"
-    echo "2) Install MikroTik_docker"
-    echo "3) Uninstall MikroTik_docker"
+    echo "2) Install MikroTik via Docker"
+    echo "3) Uninstall MikroTik via Docker":
     echo "------------------------------------------"
     echo "0) Exit"
 }
