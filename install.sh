@@ -164,7 +164,7 @@ case $choice in
         uninstall_mikrotik
       ;;
     0)
-        exit 0
+        exit
         ;;
     *)
         echo "Invalid choice. Please select a valid option."
