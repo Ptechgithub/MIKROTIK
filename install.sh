@@ -148,7 +148,7 @@ uninstall_mikrotik() {
 menu() {
     clear
     echo "By --> Peyman * Github.com/Ptechgithub * "
-    echo ""
+    echo "-------MikroTik Installer-------"
     echo "Select an option:"
     echo "1) Install MikroTik_CHR"
     echo "2) Install MikroTik_docker"
