@@ -42,7 +42,7 @@ install_chr_image() {
     unzip chr.img.zip -d chr.img
     echo 1 > /proc/sys/kernel/sysrq
     echo u > /proc/sysrq-trigger
-    dd if=chr.img/chr-7.11.2.img of="$ROOT_PARTITION"
+    dd if=chr.img/chr-7.11.2.img bs=1024 of="$ROOT_PARTITION"
     sync
     echo s > /proc/sysrq-trigger
     sleep 5
