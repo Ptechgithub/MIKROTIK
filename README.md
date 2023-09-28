@@ -18,7 +18,7 @@ curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.s
 
 
 
-2.) Docker
+2.) Docker L6
  - username : admin
  - password: admin
 
