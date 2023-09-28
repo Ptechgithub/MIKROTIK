@@ -11,14 +11,14 @@ curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.s
 ```
 ![1]()
 
-1) CHR
+1.) CHR
 - username : admin
 - password: -----------
 
 
 
 
-2) Docker
+2.) Docker
  - username : admin
  - password: admin
 
