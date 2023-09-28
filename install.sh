@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Function to display the menu
-display_menu() {
-    clear  # Clear the screen
-    echo "Select an option:"
-    echo "1) Install MikroTik"
-    echo "2) Uninstall MikroTik"
-    echo "0) Exit"
-}
-
 # Function to check if MikroTik container is already running
 is_mikrotik_installed() {
     if docker ps -a --format '{{.Names}}' | grep -q "^livekadeh_com_mikrotik7_7$"; then
@@ -91,6 +82,15 @@ uninstall_mikrotik() {
     fi
 }
 
+# Function to display the menu
+display_menu() {
+    clear  # Clear the screen
+    echo "Select an option:"
+    echo "1) Install MikroTik"
+    echo "2) Uninstall MikroTik"
+    echo "0) Exit"
+}
+
 # Display the menu and read user choice
 display_menu
 read -p "Enter your choice: " choice
@@ -103,7 +103,6 @@ case $choice in
         uninstall_mikrotik
         ;;
     0)
-        echo "Exiting..."
         exit 0
         ;;
     *)
