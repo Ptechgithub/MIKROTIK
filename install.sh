@@ -23,7 +23,7 @@ detect_distribution() {
 check_dependencies() {
     detect_distribution
 
-    local dependencies=("wget" "curl" "p7zip-full" "coreutils")
+    local dependencies=("wget" "curl" "p7zip-full" "coreutils" "gunzip")
     
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
@@ -32,6 +32,35 @@ check_dependencies() {
             sudo "${PM}" install "${dep}" -y
         fi
     done
+}
+
+# install chr_image
+install_chr_image() {
+    ROOT_PARTITION=$(sudo mount | grep 'on / type' | awk '{ print $1 }' | sed 's/[0-9]*$//')
+
+    if [[ -z "$ROOT_PARTITION" ]]; then
+        echo "Error: Root partition not found"
+        exit 1
+    fi
+
+    # Check disk type
+    if [[ "$ROOT_PARTITION" == *nvme* ]]; then
+        BLOCK_SIZE=512
+    else
+        BLOCK_SIZE=1024
+    fi
+
+    # Download and install CHR image on disk
+    sudo wget https://download.mikrotik.com/routeros/7.11.2/chr-7.11.2.img.zip -O chr.img.zip
+    gunzip -c chr.img.zip > chr.img
+    read -p "Press Enter to continue..."
+    echo u > /proc/sysrq-trigger
+    dd if=chr.img bs=$BLOCK_SIZE of="$ROOT_PARTITION"
+    echo "sync disk"
+    echo s > /proc/sysrq-trigger
+    echo "Please wait ..."
+    sleep 5
+    echo "Installed, rebooting..."
 }
 
 # check docker
@@ -110,8 +139,9 @@ install_mikrotik() {
 display_menu() {
     clear
     echo "Select an option:"
-    echo "1) Install MikroTik"
-    echo "2) Uninstall MikroTik"
+    echo "1) Install MikroTik_CHR"
+    echo "2) Install MikroTik_docker"
+    echo "3) Uninstall MikroTik_docker"
     echo "0) Exit"
 }
 
@@ -140,11 +170,14 @@ read -p "Enter your choice: " choice
 
 case $choice in
     1)
-        install_mikrotik
+        install_chr_image
         ;;
     2)
-        uninstall_mikrotik
+        ininstall_mikrotik
         ;;
+    3)
+        uninstall_mikrotik
+      ;;
     0)
         exit 0
         ;;
