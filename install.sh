@@ -1,15 +1,6 @@
 #!/bin/bash
 
-# Function to check if MikroTik container is already running
-is_mikrotik_installed() {
-    if docker ps -a --format "{{.Names}}" | grep -q "livekadeh_com_mikrotik7_7"; then
-        echo "MikroTik is installed."
-    else
-        echo "MikroTik is not installed."
-        install_mikrotik_docker
-    fi
-}
-
+# check docker
 check_and_install_docker() {
     if ! command -v docker &> /dev/null; then
         echo "Installing docker..."
@@ -26,10 +17,14 @@ check_and_install_docker() {
     fi
 }
 
-# MikroTik and docker installation function
-install_mikrotik() {
-    check_and_install_docker
-    is_mikrotik_installed
+# Function to check if MikroTik container is already running
+is_mikrotik_installed() {
+    if docker ps -a --format "{{.Names}}" | grep -q "livekadeh_com_mikrotik7_7"; then
+        echo "MikroTik is installed."
+    else
+        echo "MikroTik is not installed."
+        install_mikrotik_docker
+    fi
 }
 
 # install MikroTik
@@ -73,7 +68,11 @@ install_mikrotik_docker() {
     fi
 }
 
-
+# MikroTik and docker installation function
+install_mikrotik() {
+    check_and_install_docker
+    is_mikrotik_installed
+}
 
 # Function to display the menu
 display_menu() {
