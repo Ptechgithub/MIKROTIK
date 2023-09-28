@@ -26,7 +26,7 @@ sudo -i
 #1
 
 ```
-sudo wget https://download.mikrotik.com/routeros/7.10/chr-7.10.2.img.zip -O chr.img.zip && gunzip -c chr.img.zip > chr.img
+sudo wget https://download.mikrotik.com/routeros/7.11.2/chr-7.11.2.img.zip -O chr.img.zip && gunzip -c chr.img.zip > chr.img
 ```
 
 
