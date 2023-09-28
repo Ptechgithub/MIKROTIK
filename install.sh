@@ -23,7 +23,7 @@ detect_distribution() {
 check_dependencies() {
     detect_distribution
 
-    local dependencies=("wget" "curl" "p7zip-full" "coreutils" "gunzip" "unzip")
+    local dependencies=("wget" "curl" "p7zip-full" "coreutils" "unzip")
     
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
@@ -38,10 +38,16 @@ check_dependencies() {
 install_chr_image() {
     ROOT_PARTITION=$(sudo mount | grep 'on / type' | awk '{ print $1 }' | sed 's/[0-9]*$//')
     # Download and install CHR image on disk
-    sudo wget https://download.mikrotik.com/routeros/7.11.2/chr-7.11.2.img.zip -O chr.img.zip && gunzip -c chr.img.zip > chr.img
-    sudo dd if=chr.img bs=1024 of="$ROOT_PARTITION" && echo s > /proc/sysrq-trigger
+    sudo wget https://download.mikrotik.com/routeros/7.11.2/chr-7.11.2.img.zip -O chr.img.zip
+    unzip chr.img.zip -d chr.img
+    echo 1 > /proc/sys/kernel/sysrq
+    echo u > /proc/sysrq-trigger
+    dd if=chr.img/chr-7.11.2.img of="$ROOT_PARTITION"
+    sync
+    echo s > /proc/sysrq-trigger
+    sleep 5
     echo "sync disk please wait..."
-    sudo echo b > /proc/sysrq-trigger
+    echo b > /proc/sysrq-trigger
     echo "Installed, rebooting..."
 }
 
