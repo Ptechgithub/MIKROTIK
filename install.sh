@@ -2,11 +2,11 @@
 
 # Function to check if MikroTik container is already running
 is_mikrotik_installed() {
-    # بررسی وجود کانتینر میکروتیک با Docker
     if docker ps -a --format "{{.Names}}" | grep -q "livekadeh_com_mikrotik7_7"; then
         echo "MikroTik is installed."
     else
         echo "MikroTik is not installed."
+        install_mikrotik_docker
     fi
 }
 
@@ -24,10 +24,15 @@ check_and_install_docker() {
         echo "Docker is already installed."
     fi
 }
-# Function to install MikroTik
+
+# MikroTik and docker installation function
 install_mikrotik() {
     check_and_install_docker
     is_mikrotik_installed
+}
+
+# install MikroTik
+install_mikrotik_docker() {
     # Update packages
     sudo apt-get update -y
 
