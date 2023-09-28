@@ -7,9 +7,9 @@
 ## installl
 
 ```
-bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/Mikrotik/main/install.sh)
+curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
-![1]()
+![4](https://raw.githubusercontent.com/Ptechgithub/configs/main/media/4.jpg)
 
 1.) CHR
 - username : admin
