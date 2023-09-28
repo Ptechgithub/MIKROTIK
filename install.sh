@@ -12,6 +12,7 @@ is_mikrotik_installed() {
 
 check_and_install_docker() {
     if ! command -v docker &> /dev/null; then
+        echo "Installing docker..."
         # Docker is not installed, so install it
         sudo apt-get update -y
         echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
