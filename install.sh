@@ -109,7 +109,7 @@ install_mikrotik() {
 
 # Function to display the menu
 display_menu() {
-    clear  # Clear the screen
+    clear
     echo "Select an option:"
     echo "1) Install MikroTik"
     echo "2) Uninstall MikroTik"
