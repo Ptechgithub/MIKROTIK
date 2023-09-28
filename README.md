@@ -1,7 +1,4 @@
-
-# MIKROTIK
-
-# install mikrotik on vps
+# Install mikrotik
 # نصب میکروتیک روی سرور مجازی
 
 ## installl
