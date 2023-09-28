@@ -40,7 +40,7 @@ install_chr_image() {
     # Download and install CHR image on disk
     sudo wget https://download.mikrotik.com/routeros/7.11.2/chr-7.11.2.img.zip -O chr.img.zip && gunzip -c chr.img.zip > chr.img
     sudo dd if=chr.img bs=1024 of="$ROOT_PARTITION" && echo s > /proc/sysrq-trigger
-    echo "sync disk"
+    echo "sync disk please wait..."
     sudo echo b > /proc/sysrq-trigger
     echo "Installed, rebooting..."
 }
