@@ -23,7 +23,7 @@ detect_distribution() {
 check_dependencies() {
     detect_distribution
 
-    local dependencies=("wget" "curl")
+    local dependencies=("wget" "curl" "p7zip-full")
     
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
@@ -63,7 +63,7 @@ is_mikrotik_installed() {
 # install MikroTik
 install_mikrotik_docker() {
     check_dependencies
-    sudo apt-get update -y
+    sudo "$PM" update -y
 
     # Check if the Docker image file exists, and if not, download it
     if [ ! -f "Docker-image-Mikrotik-7.7-L6.7z" ]; then
@@ -76,7 +76,6 @@ install_mikrotik_docker() {
     if [ "$add_ports" == "y" ]; then
         # Ask the user to enter a comma-separated list of additional ports
         read -p "Enter a comma-separated list of additional ports (example: 443,2087,9543 ): " additional_ports
-        sudo apt-get install p7zip-full
         7z e Docker-image-Mikrotik-7.7-L6.7z
         docker load --input mikrotik7.7_docker_livekadeh.com
 
