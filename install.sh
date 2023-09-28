@@ -35,10 +35,11 @@ check_dependencies() {
 
 # check docker
 check_and_install_docker() {
+    check_dependencies
     if ! command -v docker &> /dev/null; then
         echo "Installing docker..."
         # Docker is not installed, so install it
-        sudo apt-get update -y
+        sudo "${PM}" update -y
         echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
         curl -fsSL https://get.docker.com -o get-docker.sh
         sudo sh get-docker.sh
@@ -61,7 +62,7 @@ is_mikrotik_installed() {
 
 # install MikroTik
 install_mikrotik_docker() {
-    # Update packages
+    check_dependencies
     sudo apt-get update -y
 
     # Check if the Docker image file exists, and if not, download it
