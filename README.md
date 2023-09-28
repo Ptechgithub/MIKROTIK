@@ -7,7 +7,7 @@
 ## installl
 
 ```
-curl -Ls https://raw.githubusercontent.com/Ptechgithub/Mikrotik/master/install.sh -o install.sh && chmod +x install.sh && ./install.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/Mikrotik/main/install.sh)
 ```
 ![1]()
 
