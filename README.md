@@ -13,7 +13,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/MIKROTIK/main/in
 
 1.) CHR
 - username : admin
-- password: -----------
+- password: ❌️
 
 
 
