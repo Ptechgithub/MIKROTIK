@@ -7,9 +7,9 @@ detect_distribution() {
     if [ -f /etc/os-release ]; then
         source /etc/os-release
         if [[ "${ID}" = "ubuntu" || "${ID}" = "debian" || "${ID}" = "centos" || "${ID}" = "fedora" ]]; then
-            package_manager="apt-get"
-            [ "${ID}" = "centos" ] && package_manager="yum"
-            [ "${ID}" = "fedora" ] && package_manager="dnf"
+            PM="apt-get"
+            [ "${ID}" = "centos" ] && PM="yum"
+            [ "${ID}" = "fedora" ] && PM="dnf"
         else
             echo "Unsupported distribution!"
             exit 1
@@ -23,12 +23,12 @@ detect_distribution() {
 check_dependencies() {
     detect_distribution
 
-    local dependencies=("wget")
+    local dependencies=("wget" "curl")
     
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
             echo "${dep} is not installed. Installing..."
-            sudo "${package_manager}" install "${dep}" -y
+            sudo "${PM}" install "${dep}" -y
         fi
     done
 }
@@ -40,7 +40,6 @@ check_and_install_docker() {
         # Docker is not installed, so install it
         sudo apt-get update -y
         echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
-        sudo apt-get install curl -y
         curl -fsSL https://get.docker.com -o get-docker.sh
         sudo sh get-docker.sh
         sudo systemctl start docker
