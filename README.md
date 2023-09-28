@@ -1,6 +1,6 @@
 # Mikrotik installer
 
-[آموزش در کانال IR_TECH](https://youtu.be/h_moyIt4gpE)
+## [آموزش در کانال IR_TECH](https://youtu.be/h_moyIt4gpE)
 ## install
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/MIKROTIK/main/install.sh)
