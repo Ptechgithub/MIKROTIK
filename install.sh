@@ -122,16 +122,6 @@ install_mikrotik() {
     is_mikrotik_installed
 }
 
-# Function to display the menu
-display_menu() {
-    clear
-    echo "Select an option:"
-    echo "1) Install MikroTik_CHR"
-    echo "2) Install MikroTik_docker"
-    echo "3) Uninstall MikroTik_docker"
-    echo "0) Exit"
-}
-
 uninstall_mikrotik() {
     # Stop and remove the MikroTik container if it exists
     if docker ps -a --format "{{.Names}}" | grep -q "livekadeh_com_mikrotik7_7"; then
@@ -151,8 +141,16 @@ uninstall_mikrotik() {
     fi
 }
 
-# Display the menu and read user choice
-display_menu
+# Function to display the menu
+menu() {
+    clear
+    echo "Select an option:"
+    echo "1) Install MikroTik_CHR"
+    echo "2) Install MikroTik_docker"
+    echo "3) Uninstall MikroTik_docker"
+    echo "0) Exit"
+}
+menu
 read -p "Enter your choice: " choice
 
 case $choice in
