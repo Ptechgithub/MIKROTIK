@@ -1,5 +1,4 @@
 # Mikrotik installer
-## نصب میکروتیک روی سرور مجازی
 
 ## installl
 
