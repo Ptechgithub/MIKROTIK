@@ -23,7 +23,7 @@ detect_distribution() {
 check_dependencies() {
     detect_distribution
 
-    local dependencies=("wget" "curl" "p7zip-full" "coreutils" "gunzip")
+    local dependencies=("wget" "curl" "p7zip-full" "coreutils" "gunzip" "unzip")
     
     for dep in "${dependencies[@]}"; do
         if ! command -v "${dep}" &> /dev/null; then
