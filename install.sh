@@ -26,8 +26,8 @@ check_and_install_docker() {
 }
 # Function to install MikroTik
 install_mikrotik() {
+    check_and_install_docker
     is_mikrotik_installed
-
     # Update packages
     sudo apt-get update -y
 
@@ -67,21 +67,7 @@ install_mikrotik() {
     fi
 }
 
-# Function to uninstall MikroTik
-uninstall_mikrotik() {
-    if is_mikrotik_installed; then
-        # Check if the container is running
-        if docker ps | grep -q livekadeh_com_mikrotik7_7; then
-            docker stop livekadeh_com_mikrotik7_7
-        fi
-        docker rm livekadeh_com_mikrotik7_7
-        docker rmi livekadeh_com_mikrotik7_7
-        rm Docker-image-Mikrotik-7.7-L6.7z
-        echo "MikroTik has been uninstalled."
-    else
-        echo "MikroTik is not installed."
-    fi
-}
+
 
 # Function to display the menu
 display_menu() {
@@ -90,6 +76,25 @@ display_menu() {
     echo "1) Install MikroTik"
     echo "2) Uninstall MikroTik"
     echo "0) Exit"
+}
+
+uninstall_mikrotik() {
+    # Stop and remove the MikroTik container if it exists
+    if docker ps -a --format "{{.Names}}" | grep -q "livekadeh_com_mikrotik7_7"; then
+        docker stop livekadeh_com_mikrotik7_7
+        docker rm livekadeh_com_mikrotik7_7
+        echo "MikroTik container has been stopped and removed."
+    else
+        echo "MikroTik container is not found."
+    fi
+
+    # Remove the Docker image if it exists
+    if docker images -a | grep -q "livekadeh_com_mikrotik7_7"; then
+        docker rmi livekadeh_com_mikrotik7_7
+        echo "MikroTik Docker image has been removed."
+    else
+        echo "MikroTik Docker image is not found."
+    fi
 }
 
 # Display the menu and read user choice
