@@ -145,6 +145,7 @@ uninstall_mikrotik() {
 # Function to display the menu
 menu() {
     clear
+    echo "By --> Peyman * Github.com/Ptechgithub * "
     echo "Select an option:"
     echo "1) Install MikroTik_CHR"
     echo "2) Install MikroTik_docker"
