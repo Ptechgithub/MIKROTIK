@@ -95,17 +95,17 @@ install_mikrotik_docker() {
     read -p "Do you want to add additional ports to the MikroTik container? (y/n): " add_ports
 
     if [ "$add_ports" == "y" ]; then
-        # Ask the user to enter a comma-separated list of additional ports
-        read -p "Enter a comma-separated list of additional ports (example: 443,2087,9543 ): " additional_ports
+        # Ask the user to enter a range of additional ports
+        read -p "Enter the starting port: " start_port
+        read -p "Enter the ending port: " end_port
         
-        # Split the comma-separated ports into an array
-        IFS=',' read -ra ports_array <<< "$additional_ports"
-
         # Create a string to hold the port mappings
         port_mappings=""
-
-        # Iterate over the ports and add them to the port mappings string
-        for port in "${ports_array[@]}"; do
+        for ((port=start_port; port<=end_port; port++)); do
+            # Skip ports 80 and 8291
+            if [[ "$port" == "80" || "$port" == "8291" ]]; then
+                continue
+            fi
             port_mappings+=" -p $port:$port"
         done
 
