@@ -40,7 +40,7 @@ install_chr_image() {
     
     ROOT_PARTITION=$(sudo mount | grep 'on / type' | awk '{ print $1 }' | sed 's/[0-9]*$//')
     # Download and install CHR image on disk
-    sudo wget https://download.mikrotik.com/routeros/7.14.3/chr-7.14.3.img.zip -O chr.img.zip
+    sudo wget https://download.mikrotik.com/routeros/7.15.2/chr-7.15.2.img.zip -O chr.img.zip
     unzip chr.img.zip -d chr.img
     echo 1 > /proc/sys/kernel/sysrq
     echo u > /proc/sysrq-trigger
